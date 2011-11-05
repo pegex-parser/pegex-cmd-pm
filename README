@@ -14,7 +14,16 @@ SYNOPSIS
 
 DESCRIPTION
     The "pegex" command line tool compiles a Pegex grammar into a particular
-    format and prints it to STDOUT.
+    format and prints it to STDOUT. This tool just provides a simple way to
+    invoke <Pegex::Compiler> from the command line. See the "Pegex"
+    documentation for more information.
+
+SEE ALSO
+    *   pegex
+
+    *   Pegex
+
+    *   Pegex::Compiler
 
 AUTHOR
     Ingy döt Net <ingy@cpan.org>

@@ -1,4 +1,9 @@
 ---
+version: 0.11
+date:    Sat Nov  5 01:14:39 PDT 2011
+changes:
+- Better docs for castaway++
+---
 version: 0.10
 date:    Tue Oct  4 00:05:44 BST 2011
 changes:

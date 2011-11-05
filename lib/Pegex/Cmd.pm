@@ -1,20 +1,24 @@
-
 ##
 # name:      Pegex::Command
 # abstract:  Support module for the 'pegex' CLI command
 # author:    Ingy döt Net <ingy@cpan.org>
 # license:   perl
 # copyright: 2011
+# see:
+# - pegex
+# - Pegex
+# - Pegex::Compiler
 
 use 5.008003;
 
 use Mouse 0.93 ();
 use MouseX::App::Cmd 0.08 ();
+use Pegex 0.19 ();
 
 #------------------------------------------------------------------------------#
 package Pegex::Cmd;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 #------------------------------------------------------------------------------#
 package Pegex::Cmd::Command;
@@ -114,5 +118,7 @@ From the command line:
 
 =head1 DESCRIPTION
 
-The C<pegex> command line tool compiles a Pegex grammar into a particular
-format and prints it to STDOUT.
+The C<pegex> command line tool compiles a L<Pegex> grammar into a particular
+format and prints it to STDOUT. This tool just provides a simple way to invoke
+<Pegex::Compiler> from the command line. See the C<Pegex> documentation for
+more information.
