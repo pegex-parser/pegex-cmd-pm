@@ -15,7 +15,7 @@ SYNOPSIS
 DESCRIPTION
     The "pegex" command line tool compiles a Pegex grammar into a particular
     format and prints it to STDOUT. This tool just provides a simple way to
-    invoke <Pegex::Compiler> from the command line. See the "Pegex"
+    invoke Pegex::Compiler from the command line. See the Pegex
     documentation for more information.
 
 SEE ALSO
@@ -29,7 +29,7 @@ AUTHOR
     Ingy döt Net <ingy@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright (c) 2011. Ingy döt Net.
+    Copyright (c) 2011, 2012. Ingy döt Net.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

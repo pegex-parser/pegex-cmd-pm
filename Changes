@@ -1,4 +1,9 @@
 ---
+version: 0.12
+date:    Sat Jul  7 14:04:55 PDT 2012
+changes:
+- Add --boot for using Pegex::Boostrap compiler
+---
 version: 0.11
 date:    Sat Nov  5 01:14:39 PDT 2011
 changes:

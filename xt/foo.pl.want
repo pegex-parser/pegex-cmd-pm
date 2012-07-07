@@ -4,6 +4,6 @@
     '.ref' => 'b'
   },
   'b' => {
-    '.rgx' => qr/(?-xism:\Gabcde)/
+    '.rgx' => qr/(?^:\Gabcde)/
   }
 }

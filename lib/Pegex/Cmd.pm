@@ -3,7 +3,7 @@
 # abstract:  Support module for the 'pegex' CLI command
 # author:    Ingy döt Net <ingy@cpan.org>
 # license:   perl
-# copyright: 2011
+# copyright: 2011, 2012
 # see:
 # - pegex
 # - Pegex
@@ -11,31 +11,20 @@
 
 use 5.008003;
 
-use Mouse 0.93 ();
-use MouseX::App::Cmd 0.08 ();
+use Mouse 0.99 ();
+use MouseX::App::Cmd 0.11 ();
 use Pegex 0.19 ();
 
 #------------------------------------------------------------------------------#
 package Pegex::Cmd;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 #------------------------------------------------------------------------------#
 package Pegex::Cmd::Command;
 use App::Cmd::Setup -command;
 use Mouse;
 extends 'MouseX::App::Cmd::Command';
-
-sub validate_args {}
-
-# Semi-brutal hack to suppress extra options I don't care about.
-around usage => sub {
-    my $orig = shift;
-    my $self = shift;
-    my $opts = $self->{usage}->{options};
-    @$opts = grep { $_->{name} ne 'help' } @$opts;
-    return $self->$orig(@_);
-};
 
 #-----------------------------------------------------------------------------#
 package Pegex::Cmd;
@@ -53,8 +42,6 @@ package Pegex::Cmd::Command::compile;
 Package->import( -command );
 use Mouse;
 extends 'Pegex::Cmd::Command';
-
-use Pegex::Compiler;
 
 use constant abstract => 'Compile a Pegex grammar to some format.';
 use constant usage_desc => 'pegex compile --to=<output format> [grammar_file.pgx]';
@@ -77,6 +64,13 @@ has regex => (
     documentation => "Regex format: raw, perl.",
 );
 
+has boot => (
+    is => 'ro',
+    isa => 'Bool',
+    default => sub { 0 },
+    documentation => 'Use the bootstrap compiler',
+);
+
 my %formats = map {($_,1)} qw'yaml json perl perl6 python';
 my %regexes = map {($_,1)} qw'perl raw';
 
@@ -91,7 +85,11 @@ sub execute {
     my $input = scalar(@$args)
         ? $args->[0]
         : do { local $/; <> };
-    my $compiler = Pegex::Compiler->new();
+    my $compiler_class = $self->boot
+        ? 'Pegex::Bootstrap'
+        : 'Pegex::Compiler';
+    eval "use $compiler_class; 1" or die $@;
+    my $compiler = $compiler_class->new();
     $compiler->parse($input)->combinate;
     $compiler->perlify if $regex eq 'perl';
     my $output =
@@ -120,5 +118,5 @@ From the command line:
 
 The C<pegex> command line tool compiles a L<Pegex> grammar into a particular
 format and prints it to STDOUT. This tool just provides a simple way to invoke
-<Pegex::Compiler> from the command line. See the C<Pegex> documentation for
+L<Pegex::Compiler> from the command line. See the L<Pegex> documentation for
 more information.
