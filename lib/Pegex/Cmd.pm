@@ -74,6 +74,13 @@ has boot => (
 my %formats = map {($_,1)} qw'yaml json perl perl6 python';
 my %regexes = map {($_,1)} qw'perl raw';
 
+sub slurp {
+    my ($file_name) = @_;
+    open INPUT, $file_name or die "Can't open $file_name for input";
+    local $/;
+    <INPUT>
+}
+
 sub execute {
     my ($self, $opt, $args) = @_;
     my $to = $self->to;
@@ -83,7 +90,7 @@ sub execute {
     die "'$regex' is an invalid --regex= format"
         unless $regexes{$regex};
     my $input = scalar(@$args)
-        ? $args->[0]
+        ? slurp($args->[0])
         : do { local $/; <> };
     my $compiler_class = $self->boot
         ? 'Pegex::Bootstrap'
