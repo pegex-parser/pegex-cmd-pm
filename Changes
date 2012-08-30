@@ -1,4 +1,9 @@
 ---
+version: 0.13
+date:    Thu Aug 30 00:31:16 PDT 2012
+changes:
+- Use Pegex 0.20 API
+---
 version: 0.12
 date:    Sat Jul  7 14:04:55 PDT 2012
 changes:

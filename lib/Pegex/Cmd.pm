@@ -11,14 +11,14 @@
 
 use 5.008003;
 
-use Mouse 0.99 ();
+use Mouse 1.02 ();
 use MouseX::App::Cmd 0.11 ();
-use Pegex 0.19 ();
+use Pegex 0.20 ();
 
 #------------------------------------------------------------------------------#
 package Pegex::Cmd;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 #------------------------------------------------------------------------------#
 package Pegex::Cmd::Command;
@@ -98,7 +98,7 @@ sub execute {
     eval "use $compiler_class; 1" or die $@;
     my $compiler = $compiler_class->new();
     $compiler->parse($input)->combinate;
-    $compiler->perlify if $regex eq 'perl';
+    $compiler->native if $regex eq 'perl';
     my $output =
         $to eq 'perl' ? $compiler->to_perl :
         $to eq 'yaml' ? $compiler->to_yaml :

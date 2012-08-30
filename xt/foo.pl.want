@@ -1,9 +1,9 @@
 {
-  '+top' => 'a',
+  '+toprule' => 'a',
   'a' => {
     '.ref' => 'b'
   },
   'b' => {
-    '.rgx' => qr/(?^:\Gabcde)/
+    '.rgx' => qr/(?-xism:\Gabcde)/
   }
 }
