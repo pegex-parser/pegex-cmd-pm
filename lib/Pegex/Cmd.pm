@@ -1,26 +1,6 @@
-##
-# name:      Pegex::Command
-# abstract:  Support module for the 'pegex' CLI command
-# author:    Ingy döt Net <ingy@cpan.org>
-# license:   perl
-# copyright: 2011, 2012
-# see:
-# - pegex
-# - Pegex
-# - Pegex::Compiler
-
-use 5.008003;
-
-use Mouse 1.02 ();
-use MouseX::App::Cmd 0.11 ();
-use Pegex 0.20 ();
-
-#------------------------------------------------------------------------------#
 package Pegex::Cmd;
 
-our $VERSION = '0.13';
-
-#------------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------#
 package Pegex::Cmd::Command;
 use App::Cmd::Setup -command;
 use Mouse;
@@ -37,14 +17,16 @@ use Module::Pluggable
   search_path => [ 'Pegex::Cmd::Command' ];
   Pegex::Cmd->plugins;
 
-#------------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------#
 package Pegex::Cmd::Command::compile;
 Package->import( -command );
 use Mouse;
 extends 'Pegex::Cmd::Command';
 
-use constant abstract => 'Compile a Pegex grammar to some format.';
-use constant usage_desc => 'pegex compile --to=<output format> [grammar_file.pgx]';
+use constant abstract =>
+    'Compile a Pegex grammar to some format.';
+use constant usage_desc =>
+    'pegex compile --to=<output format> [grammar_file.pgx]';
 
 has to => (
     is => 'ro',
@@ -109,6 +91,12 @@ sub execute {
 
 1;
 
+=encoding utf8
+
+=head1 NAME
+
+Pegex::Cmd - Support module for the 'pegex' CLI command
+
 =head1 SYNOPSIS
 
 From the command line:
@@ -127,3 +115,18 @@ The C<pegex> command line tool compiles a L<Pegex> grammar into a particular
 format and prints it to STDOUT. This tool just provides a simple way to invoke
 L<Pegex::Compiler> from the command line. See the L<Pegex> documentation for
 more information.
+
+=head1 AUTHOR
+
+Ingy döt Net <ingy@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (c) 2011-2014. Ingy döt Net.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+See http://www.perl.com/perl/misc/Artistic.html
+
+=cut
