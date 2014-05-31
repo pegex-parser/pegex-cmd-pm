@@ -1,4 +1,9 @@
 ---
+version: 0.17
+date:    Wed Jul  2 14:16:12 PDT 2014
+changes:
+- Updated prereqs
+---
 version: 0.16
 date:    Sun Jun 15 11:45:07 PDT 2014
 changes:
