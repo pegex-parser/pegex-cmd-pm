@@ -1,0 +1,33 @@
+=meta: 0.0.1
+
+name: Pegex-Cmd
+version: 0.15
+abstract: Support module for the 'pegex' CLI command
+homepage: http://kwim.org
+
+license: perl
+copyright: 2014. Ingy döt Net.
+author:
+  name: Ingy döt Net
+  email: ingy@cpan.org
+  github: ingydotnet
+  twitter: ingydotnet
+  freenode: ingy
+  homepage: http://ingy.net
+
+requires:
+  perl: 5.8.1
+  Pegex: 0.30
+
+devel:
+  git: git@github.org/ingydotnet/pegex-cmd-pm
+  irc: irc.freenode.net/pegex
+  bug: https://github.com/ingydotnet/pegex-cmd-pm/issues/
+
+=cpan:
+  include_testml: 1
+
+=travis:
+  type: perl
+  testml: yes
+  irc: irc.freenode.net#pegex
