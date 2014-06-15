@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Pegex-Cmd
-version: 0.15
+version: 0.16
 abstract: Support module for the 'pegex' CLI command
 homepage: http://kwim.org
 
@@ -18,6 +18,10 @@ author:
 requires:
   perl: 5.8.1
   Pegex: 0.30
+  App::Cmd: 0
+  Mouse: 0
+  MouseX::App::Cmd: 0
+  Module::Pluggable: 0
 
 devel:
   git: git@github.org/ingydotnet/pegex-cmd-pm

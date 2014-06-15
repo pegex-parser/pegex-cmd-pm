@@ -15,6 +15,10 @@ install:
   git://github.com/ingydotnet/pegex-pm ../pegex-pm
 - cpanm --quiet --notest
   Devel::Cover::Report::Coveralls
+  App::Cmd
+  Module::Pluggable
+  Mouse
+  MouseX::App::Cmd
   Pegex
 
 script:
