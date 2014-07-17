@@ -1,9 +1,9 @@
 =meta: 0.0.1
 
 name: Pegex-Cmd
-version: 0.17
+version: 0.18
 abstract: Support module for the 'pegex' CLI command
-homepage: http://kwim.org
+homepage: https://metacpan.org/release/Pegex-Cmd
 
 license: perl
 copyright: 2014. Ingy döt Net.
@@ -24,9 +24,9 @@ requires:
   Module::Pluggable: 0
 
 devel:
-  git: git@github.org/ingydotnet/pegex-cmd-pm
-  irc: irc.freenode.net/pegex
-  bug: https://github.com/ingydotnet/pegex-cmd-pm/issues/
+  git: https://github.com/ingydotnet/pegex-cmd-pm
+  bug: https://github.com/ingydotnet/pegex-cmd-pm/issues
+  irc: irc.freenode.net#pegex
 
 =cpan:
   include_testml: 1

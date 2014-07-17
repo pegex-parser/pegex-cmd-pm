@@ -7,12 +7,16 @@
 
 .PHONY: cpan test
 
-ifeq (,$(shell which zild))
-    $(error "Error: 'zild' command not found. Please install Zilla::Dist from CPAN")
+ifneq (,$(shell which zild))
+    NAME := $(shell zild meta name)
+    VERSION := $(shell zild meta version)
+    RELEASE_BRANCH := $(shell zild meta branch)
+else
+    NAME := No-Name
+    VERSION := 0
+    RELEASE_BRANCH := master
 endif
 
-NAME := $(shell zild meta name)
-VERSION := $(shell zild meta version)
 DISTDIR := $(NAME)-$(VERSION)
 DIST := $(DISTDIR).tar.gz
 NAMEPATH := $(subst -,/,$(NAME))
@@ -47,17 +51,22 @@ help:
 	@echo ''
 
 test:
+ifeq ($(wildcard pkg/no-test),)
 	prove -lv test
+else
+	@echo "Testing not available. Use 'disttest' instead."
+endif
 
 install: distdir
 	(cd $(DISTDIR); perl Makefile.PL; make install)
 	make clean
 
 update: makefile
-	make readme travis version
+	make readme contrib travis version
 
 release: clean update check-release test disttest
 	make dist
+	[ -n "$$(git status -s)" ] && git commit -am '$(VERSION)'
 	cpan-upload $(DIST)
 	git push
 	git tag $(VERSION)
@@ -76,7 +85,11 @@ cpanshell: cpan
 	make clean
 
 cpantest: cpan
+ifeq ($(wildcard pkg/no-test),)
 	(cd cpan; prove -lv t) && make clean
+else
+	@echo "Testing not available. Use 'disttest' instead."
+endif
 
 dist: clean cpan
 	(cd cpan; dzil build)
@@ -102,8 +115,11 @@ upgrade:
 readme:
 	swim --pod-cpan doc/$(NAMEPATH).swim > ReadMe.pod
 
+contrib:
+	zild-render-template Contributing
+
 travis:
-	zild-make-travis
+	zild-render-template travis.yml .travis.yml
 
 clean purge:
 	rm -fr cpan .build $(DIST) $(DISTDIR)
@@ -112,7 +128,7 @@ clean purge:
 # Non-pulic-facing targets:
 #------------------------------------------------------------------------------
 check-release:
-	zild-check-release
+	RELEASE_BRANCH=$(RELEASE_BRANCH) zild-check-release
 
 # We don't want to update the Makefile in Zilla::Dist since it is the real
 # source, and would be reverting to whatever was installed.
