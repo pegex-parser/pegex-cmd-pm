@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Pegex-Cmd
-version: 0.20
+version: 0.21
 abstract: Support module for the 'pegex' CLI command
 homepage: https://metacpan.org/release/Pegex-Cmd
 

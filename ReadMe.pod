@@ -10,6 +10,10 @@ See http://github.com/ingydotnet/swim-pm#readme
 
 Pegex::Cmd - Support module for the 'pegex' CLI command
 
+=for html
+<a href="https://travis-ci.org/ingydotnet/pegex-cmd-pm"><img src="https://travis-ci.org/ingydotnet/pegex-cmd-pm.png" alt="pegex-cmd-pm"></a>
+<a href="https://coveralls.io/r/ingydotnet/pegex-cmd-pm?branch=master"><img src="https://coveralls.io/repos/ingydotnet/pegex-cmd-pm/badge.png" alt="pegex-cmd-pm"></a>
+
 =head1 SYNOPSIS
 
 From the command line:

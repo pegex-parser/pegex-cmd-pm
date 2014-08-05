@@ -3,6 +3,8 @@ Pegex::Cmd
 
 Support module for the 'pegex' CLI command
 
+<badge travis coveralls ingydotnet/pegex-cmd-pm>
+
 = Synopsis
 
 From the command line:
