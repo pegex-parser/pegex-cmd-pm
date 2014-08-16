@@ -1,19 +1,25 @@
-=meta: 0.0.1
+=meta: 0.0.2
 
 name: Pegex-Cmd
-version: 0.23
+version: 0.24
 abstract: Support module for the 'pegex' CLI command
 homepage: https://metacpan.org/release/Pegex-Cmd
-
+language: perl
 license: perl
-copyright: 2011-2014. Ingy döt Net.
+copyright: 2011-2014
+
 author:
   name: Ingy döt Net
   email: ingy@cpan.org
+  homepage: http://ingy.net
   github: ingydotnet
   twitter: ingydotnet
   freenode: ingy
-  homepage: http://ingy.net
+
+devel:
+  git: https://github.com/ingydotnet/pegex-cmd-pm
+  bug: https://github.com/ingydotnet/pegex-cmd-pm/issues
+  irc: irc.freenode.net#pegex
 
 requires:
   perl: 5.8.1
@@ -23,15 +29,8 @@ requires:
   MouseX::App::Cmd: 0
   Module::Pluggable: 0
 
-devel:
-  git: https://github.com/ingydotnet/pegex-cmd-pm
-  bug: https://github.com/ingydotnet/pegex-cmd-pm/issues
-  irc: irc.freenode.net#pegex
-
-=cpan:
+=zild:
   include_testml: 1
 
 =travis:
-  type: perl
   testml: yes
-  irc: irc.freenode.net#pegex
