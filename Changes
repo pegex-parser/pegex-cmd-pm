@@ -1,4 +1,10 @@
 ---
+version: 0.23
+date:    Fri Aug 15 20:19:13 PDT 2014
+changes:
+- Add t/000-compile-modules.t
+- rm t/use_ok.t
+---
 version: 0.22
 date:    Fri Aug  8 12:54:13 PDT 2014
 changes:
