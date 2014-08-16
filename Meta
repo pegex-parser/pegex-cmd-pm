@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: Pegex-Cmd
-version: 0.24
+version: 0.25
 abstract: Support module for the 'pegex' CLI command
 homepage: https://metacpan.org/release/Pegex-Cmd
 language: perl
@@ -23,14 +23,11 @@ devel:
 
 requires:
   perl: 5.8.1
-  Pegex: 0.30
   App::Cmd: 0
   Mouse: 0
   MouseX::App::Cmd: 0
   Module::Pluggable: 0
+  Pegex: 0.30
 
 =zild:
   include_testml: 1
-
-=travis:
-  testml: yes
