@@ -1,5 +1,5 @@
 package Pegex::Cmd;
-our $VERSION = '0.25';
+our $VERSION = '0.26';
 
 #-----------------------------------------------------------------------------#
 package Pegex::Cmd::Command;
@@ -57,6 +57,16 @@ has boot => (
     documentation => 'Use the bootstrap compiler',
 );
 
+has rules => (
+    is => 'ro',
+    default => sub {
+        $ENV{PEGEX_COMBINATE_RULES}
+        ? [ split / +/, $ENV{PEGEX_COMBINATE_RULES} ]
+        : []
+    },
+    documentation => 'Starting rules to combinate',
+);
+
 my %formats = map {($_,1)} qw'yaml json perl perl6 python';
 my %regexes = map {($_,1)} qw'perl raw';
 
@@ -83,7 +93,7 @@ sub execute {
         : 'Pegex::Compiler';
     eval "use $compiler_class; 1" or die $@;
     my $compiler = $compiler_class->new();
-    $compiler->parse($input)->combinate;
+    $compiler->parse($input)->combinate(@{$self->rules});
     $compiler->native if $regex eq 'perl';
     my $output =
         $to eq 'perl' ? $compiler->to_perl :
