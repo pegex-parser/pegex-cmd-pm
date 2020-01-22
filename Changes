@@ -1,4 +1,9 @@
 ---
+version: 0.27
+date:    Wed Jan 22 13:26:27 PST 2020
+changes:
+- Depend on latest Pegex
+---
 version: 0.26
 date:    Thu Jul  9 10:36:54 PDT 2015
 changes:

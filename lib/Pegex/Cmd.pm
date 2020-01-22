@@ -1,5 +1,5 @@
 package Pegex::Cmd;
-our $VERSION = '0.26';
+our $VERSION = '0.27';
 
 #-----------------------------------------------------------------------------#
 package Pegex::Cmd::Command;
