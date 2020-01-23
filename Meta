@@ -23,7 +23,11 @@ devel:
 
 requires:
   perl: 5.8.1
-  Pegex: 0.74
+  Pegex: 0
+
+test:
+  requires:
+    Capture::Tiny: 0
 
 =zild:
   include_testml: 1
