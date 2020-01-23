@@ -12,7 +12,7 @@ Pegex::Cmd - Support module for the 'pegex' CLI command
 
 =head1 Version
 
-This document describes L<Pegex::Cmd> version B<0.27>.
+This document describes L<Pegex::Cmd> version B<0.28>.
 
 =head1 Synopsis
 

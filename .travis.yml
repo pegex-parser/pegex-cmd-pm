@@ -36,7 +36,7 @@ install:
   git://github.com/testml-lang/testml ../testml
 - cpan-install --coverage
   Capture::Tiny
-  Pegex
+  Pegex~0.74
 
 before_script:
   coverage-setup

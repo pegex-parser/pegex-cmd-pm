@@ -1,4 +1,9 @@
 ---
+version: 0.28
+date:    Thu Jan 23 13:26:16 PST 2020
+changes:
+- Get rid of heavy dependencies
+---
 version: 0.27
 date:    Wed Jan 22 13:26:27 PST 2020
 changes:

@@ -4,15 +4,13 @@ use base 'TestML::Bridge';
 
 use Capture::Tiny 'capture_merged';
 
-BEGIN {
-    $ENV{PATH} = "./bin:$ENV{PATH}";
-}
-
 sub run {
   my ($self, $command) = @_;
 
+  $command =~ s{pegex\b}{perl bin/pegex} or die;
+
   capture_merged {
-      system $command
+      system "$command";
   };
 }
 
