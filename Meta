@@ -23,8 +23,7 @@ devel:
 
 requires:
   perl: 5.8.1
-  App::Cmd: 0
-  Mouse: 0
-  MouseX::App::Cmd: 0
-  Module::Pluggable: 0
-  Pegex: 0.73
+  Pegex: 0.74
+
+=zild:
+  include_testml: 1

@@ -32,18 +32,18 @@ before_install:
 - perl -V
 
 install:
+- git clone
+  git://github.com/testml-lang/testml ../testml
 - cpan-install --coverage
-  App::Cmd
-  Module::Pluggable
-  Mouse
-  MouseX::App::Cmd
-  Pegex~0.73
+  Pegex~0.74
 
 before_script:
   coverage-setup
 
 script:
 - true &&
+  source ../testml/.rc &&
+  TESTML_RUN=perl5-tap
   prove -lv test/
 
 after_success:
